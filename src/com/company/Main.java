@@ -13,17 +13,14 @@ public class Main extends Thread{
     }
 
     public void run(){
-        MainInterface mI = (int m) -> {
-                String text = makeText();
-                String newText = "";
-                for (int i = 0; i < text.length(); i++){
-                    char ch = text.charAt(i);
-                    newText += ch;
-                    System.out.println("поток " + m);
-                }
-                System.out.println(newText);
-        };
-        mI.mainFunction(n);
+        String text = makeText();
+        String newText = "";
+        for (int i = 0; i < text.length(); i++){
+            char ch = text.charAt(i);
+            newText += ch;
+            System.out.println("поток " + n);
+        }
+        System.out.println(newText);
     }
 
     public static void main(String[] args){
