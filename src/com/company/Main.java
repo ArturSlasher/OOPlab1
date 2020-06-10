@@ -11,15 +11,19 @@ public class Main extends Thread{
     public Main(int n){
         this.n = n;
     }
+
     public void run(){
-        String text = makeText();
-        String newText = "";
-        for (int i = 0; i < text.length(); i++){
-            char ch = text.charAt(i);
-            newText += ch;
-            System.out.println("поток " + n);
-        }
-        System.out.println(newText);
+        MainInterface mI = (int m) -> {
+                String text = makeText();
+                String newText = "";
+                for (int i = 0; i < text.length(); i++){
+                    char ch = text.charAt(i);
+                    newText += ch;
+                    System.out.println("поток " + m);
+                }
+                System.out.println(newText);
+        };
+        mI.mainFunction(n);
     }
 
     public static void main(String[] args){
